@@ -20,7 +20,7 @@ const thoughtSchema = new Schema (
             required: true,
         },
         
-        reactions: [reactionSchema],  
+        //reactions: [reactionSchema],  
     },
 
     {

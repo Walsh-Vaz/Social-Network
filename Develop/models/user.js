@@ -17,9 +17,9 @@ const userSchema = new Schema(
             required: true,
         },
 
-        thoughts: [thoughtSchema],
+        //thoughts: [thoughtSchema],
 
-        friends: [userSchema],
+        //friends: [userSchema],
     },
 
     {
