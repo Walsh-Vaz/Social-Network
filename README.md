@@ -9,6 +9,6 @@ Installation guide: you will need to first need to clone to repo from the link b
 
 Once the server starts ruuning, go to insomnia and type in http://localhost3001/api/users to check all the get and post.
 
-demo link: - https://drive.google.com/file/d/1qafODhHJJeAfRiBUtkHIkb4shvE-YMoW/view
+demo link: - https://drive.google.com/file/d/1wBapBWLS0kOn7hUBxaz9qYwNOf7Wlk-V/view
 
 github repo link: - https://github.com/Walsh-Vaz/Social-Network.git
