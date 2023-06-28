@@ -6,31 +6,36 @@ module.exports = {
 
     getUsers(req, res) {
         User.find().then((users) => res.json(users))
-        .catch((err) => res.status(500).json(err));
+            .catch((err) => res.status(500).json(err));
     },
 
     // getting a single user 
 
     getUserById(req, res) {
-        User.findOne({_id: req.params.userId})
-        .then((user) => !user ? res.status(404).json({message: "user not found"}) : res.json(user))
-        .catch((err) => res.status(500).json(err));
+        User.findOne({ _id: req.params.userId })
+            .then((user) => !user ? res.status(404).json({ message: "user not found" }) : res.json(user))
+            .catch((err) => res.status(500).json(err));
     },
 
     // creating a user 
 
     createUser(req, res) {
         User.create(req.body).then((userData) => res.json(userData))
-        .catch((err) => res.status(500).json(err));
+            .catch((err) => res.status(500).json(err));
     },
 
     // Updating an user
 
     updateUser(req, res) {
-        User.findOneAndUpdate({ _id: req.params.userId},
-            {runValidators: true, new: true})
-            .then((user) => 
-            !user ? res.status(404).json({message: "user not found"}) : res.json(user))
+        console.log(req.params);
+        User.findOneAndUpdate( { _id: req.params.userId }, {$set: req.body},
+            { runValidators: true, new: true })
+            .then((user) => {
+
+                console.log(user);
+               return !user ? res.status(404).json({ message: "user not found" }) : res.json(user)
+            })
+
             .catch((err) => res.status(500).json(err));
     },
 
@@ -38,8 +43,8 @@ module.exports = {
 
     deleteUser(req, res) {
 
-        User.findOneAndRemove({_id: req.params.userId}).then((user) => !user ? res.status(404).json({message: "User not Found"})
-        : res.json(user)).catch((err) => res.status(500).json(err));
+        User.findOneAndRemove({ _id: req.params.userId }).then((user) => !user ? res.status(404).json({ message: "User not Found" })
+            : res.json(user)).catch((err) => res.status(500).json(err));
     }
 
 
