@@ -32,4 +32,22 @@ module.exports = {
         .then((user) => !user ? res.status(404).json({message: "user not found"}) : res.json(user))
         .catch((err) => res.status(500).json(err));
     },
+
+    // updating a thought 
+    
+    updateThought(req, res) {
+        console.log(req.params);
+        User.findOneAndUpdate( { _id: req.params.thoughtId }, {$set: req.body},
+            { runValidators: true, new: true })
+            .then((thought) => {
+
+                console.log(thought);
+               return !thought ? res.status(404).json({ message: "user not found" }) : res.json(thought)
+            })
+
+            .catch((err) => res.status(500).json(err));
+    },
+
+
+
 };
