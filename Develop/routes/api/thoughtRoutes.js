@@ -5,6 +5,6 @@ const {getThoughts, getThoughtById, createThought, updateThought} = require("../
 
 router.route("/").get(getThoughts).post(createThought);
 
-router.route("/:userId").get(getThoughtById).put(updateThought);
+router.route("/:id").get(getThoughtById).put(updateThought);
 
 module.exports = router;
